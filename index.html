@@ -205,6 +205,8 @@
                          text-transform:uppercase; letter-spacing:.16em; color:#8b6508; margin-right:.6rem; }
 
     .slide { width:100%; max-width:1650px; }
+    #banner-prog { display:none !important; }
+    .tplan tr + tr td { border-top:1px solid rgba(148,163,184,.35); }
     .s-stagebar { display:flex; justify-content:flex-end; flex-wrap:wrap; gap:.3rem; margin:0 0 .9rem; font-family:'JetBrains Mono',monospace; font-size:clamp(.55rem,.85vw,.78rem); font-weight:700; letter-spacing:.08em; }
     .s-stagebar span { padding:.18rem .6rem; border-radius:999px; border:1px solid rgba(148,163,184,.5); color:#94a3b8; }
     .s-stagebar span.on { background:#c5a059; border-color:#c5a059; color:#002066; }
@@ -1019,7 +1021,7 @@
             <div class="border-2 border-white/20 rounded-full px-3 py-1 inline-block bg-white/10 backdrop-blur shadow-sm">
                 <span id="brand-kicker" class="font-bold text-xs tracking-widest text-whs-light uppercase"></span>
             </div>
-            <span id="version-badge" class="text-[10px] font-mono px-2 py-1 rounded-full bg-white/10 border border-white/20 text-blue-200">v2.2 · teacher</span>
+            <span id="version-badge" class="text-[10px] font-mono px-2 py-1 rounded-full bg-white/10 border border-white/20 text-blue-200">v2.3 · teacher</span>
             <button onclick="toggleDarkMode()" class="p-2 rounded-full bg-white/10 hover:bg-white/20 transition border border-white/20 shadow-sm no-print" aria-label="Toggle dark mode">
                 <svg class="w-4 h-4 hidden dark:block text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                 <svg class="w-4 h-4 block dark:hidden text-whs-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
@@ -1050,12 +1052,12 @@
     <nav class="max-w-[88rem] mx-auto px-4" role="tablist" aria-label="Site sections">
 
         <div class="flex flex-wrap justify-center items-center gap-2">
-            <button data-target="start" role="tab" aria-selected="true" id="tab-start" aria-controls="view-start" class="nav-btn active px-4 py-2 text-sm rounded-lg font-bold border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all shadow-sm">&#129517; Start Here</button>
+            <button data-target="start" role="tab" aria-selected="true" id="tab-start" aria-controls="view-start" class="nav-btn active px-4 py-2 text-sm rounded-lg font-bold border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all shadow-sm">&#129517; Unit overview</button>
             <button data-target="data" role="tab" aria-selected="false" id="tab-data" aria-controls="view-data" class="nav-btn px-4 py-2 text-sm rounded-lg font-bold bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all text-slate-700 dark:text-slate-200 shadow-sm">&#128202; Data Bank</button>
-            <button data-target="revision" role="tab" aria-selected="false" id="tab-revision" aria-controls="view-revision" class="nav-btn px-4 py-2 text-sm rounded-lg font-bold bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all text-slate-700 dark:text-slate-200 shadow-sm">&#127919; Revision</button>
+            <button data-target="revision" role="tab" aria-selected="false" id="tab-revision" aria-controls="view-revision" class="nav-btn px-4 py-2 text-sm rounded-lg font-bold bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all text-slate-700 dark:text-slate-200 shadow-sm">&#127919; Class revision</button>
             <div class="relative inline-block rounded-lg ring-2 ring-red-500 ring-offset-2 ring-offset-slate-200 dark:ring-offset-slate-900"><button data-target="report" role="tab" aria-selected="false" id="tab-report" aria-controls="view-report" class="nav-btn px-4 py-2 text-sm rounded-lg font-bold bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all text-slate-700 dark:text-slate-200 shadow-sm"></button></div>
             <span class="nav-divider" aria-hidden="true"></span>
-            <button data-target="teacher" role="tab" aria-selected="false" id="tab-teacher" aria-controls="view-teacher" class="nav-btn px-3 py-2 text-xs rounded-lg font-bold bg-slate-700 text-slate-100 border border-slate-800 hover:bg-slate-600 transition-all shadow-sm">&#128105;&#8205;&#127979; Teacher</button>
+            <button data-target="teacher" role="tab" aria-selected="false" id="tab-teacher" aria-controls="view-teacher" class="nav-btn px-3 py-2 text-xs rounded-lg font-bold bg-slate-700 text-slate-100 border border-slate-800 hover:bg-slate-600 transition-all shadow-sm">&#128105;&#8205;&#127979; Planning &amp; printing</button>
         </div>
 
         <div id="lesson-navblock" class="mt-2.5 pt-2.5 border-t border-slate-300/70 dark:border-slate-700/70">
@@ -2540,7 +2542,7 @@ function intentInnerHTML(nums){
         var head = nums.length > 1 ? '<div class="res-sub">Lesson ' + n + '</div>' : '';
         return head
             + '<p class="int-line">' + esc(m.intent) + '</p>'
-            + '<div class="int-crit"><strong>By the end you should be able to say:</strong><ul>'
+            + '<div class="int-crit"><strong>Success criteria:</strong><ul>'
             + m.criteria.map(function(c){ return '<li>' + esc(c) + '</li>'; }).join('')
             + '</ul></div>';
     }).join('');
@@ -2552,7 +2554,7 @@ function intentHTML(nums){
         var head = nums.length > 1 ? '<div class="res-sub">Lesson ' + n + '</div>' : '';
         return head
             + '<p class="int-line">' + esc(m.intent) + '</p>'
-            + '<div class="int-crit"><strong>By the end you should be able to say:</strong><ul>'
+            + '<div class="int-crit"><strong>Success criteria:</strong><ul>'
             + m.criteria.map(function(c){ return '<li>' + esc(c) + '</li>'; }).join('')
             + '</ul></div>';
     }).join('');
@@ -2697,8 +2699,8 @@ function wsStripHTML(nums){
     return '<div class="ws-strip no-print">'
         + '<span class="ws-ico">\uD83D\uDCC4</span>'
         + '<span style="flex:1;min-width:14rem">'
-        +   '<span class="ws-t">There is a worksheet for this lesson</span><br>'
-        +   '<span class="ws-d">Your teacher may hand it out. You can also print your own copy.</span>'
+        +   '<span class="ws-t">Worksheet for this lesson</span><br>'
+        +   '<span class="ws-d">Print one per student, or use the Word version to edit it.</span>'
         + '</span>'
         + withWs.map(function(n){
             return '<button onclick="openWorksheet(' + n + ')" class="deck-launch primary">\uD83D\uDDA8\uFE0F Lesson ' + n + ' worksheet</button>';
@@ -2790,8 +2792,7 @@ function whereCardHTML(nums){
             + '<p>Fill it in, then glue it into your book.</p>'
             + '<button onclick="openWorksheetView(' + n + ')" class="deck-launch">📄 Open the worksheet</button></div>'
         : '<div class="where-tile sheet none"><h4>📄 Worksheet</h4><p>No worksheet this lesson.</p></div>';
-    return '<div class="mt-5"><div class="text-[10px] font-mono uppercase tracking-widest text-slate-500 dark:text-slate-400 font-bold mb-2">Where your work goes today</div>'
-        + '<div class="where-grid">'
+    return '<div class="mt-5"><div class="text-[10px] font-mono uppercase tracking-widest text-slate-500 dark:text-slate-400 font-bold mb-2">Where the work goes</div>' + '<div class="where-grid">'
         + '<div class="where-tile book"><h4>📓 Exercise book</h4><p>' + esc(w.act) + '</p>'
         +   '<p class="mt-1"><em>Plus ' + w.copy.length + ' notes to copy — see the green card below.</em></p></div>'
         + sheetTile
@@ -4036,13 +4037,62 @@ function renderWorksheetList(){
    knows each activity's type and ACT_MARKED is exactly the Learn/Do split.
    ========================================================================= */
 
-var PHASE_LABEL = { start:'Start here', book:'Set up your book', learn:'Learn',
-                    do:'Do', notes:'Copy the notes', deeper:'Deeper' };
+var PHASE_LABEL = { start:'Lesson plan', slides:'Slides', book:'Book work', learn:'To show', do:'Class activities', notes:'Notes to copy', deeper:'Resources & answers' };
 
 /* the single source the strip, the Next buttons and the teacher map all read */
+function presentAt(n, i){ injectBookSlides(); openDeck(n); deckGo(i); }
+function presentStage(n, st){ injectBookSlides(); var d = SLIDES[n] || []; for (var i = 0; i < d.length; i++) if (stageOf(d[i]) === st) return presentAt(n, i); presentAt(n, 0); }
+function teacherPlanHTML(t){
+    var n = t.n[0], l = LESSONS[n - 1] || {}, res = l.res || '';
+    var tm = /^Timing: ([^.]*)\.\s*/.exec(res), timing = tm ? tm[1] : '';
+    if (tm) res = res.slice(tm[0].length);
+    var split = function(x){ var p = String(x || '').split(' ▸ On this site: '); return '<div class="text-slate-800 dark:text-slate-200">' + esc(p[0]) + '</div>' + (p[1] ? '<div class="text-xs text-slate-500 dark:text-slate-400 mt-1"><strong>On this site:</strong> ' + esc(p[1]) + '</div>' : ''); };
+    var col = { 'Connect':'#475569', 'I Do':'#6b21a8', 'We Do':'#1d4ed8', 'You Do':'#15803d', 'Review':'#8b6508' };
+    var rows = [['Connect', l.c], ['I Do', l.i], ['We Do', l.w], ['You Do', l.y], ['Review', l.r]].map(function(r){
+        return '<tr><td style="vertical-align:top;padding:.55rem .6rem;width:8.5rem"><span style="display:inline-block;background:' + col[r[0]] + ';color:#fff;font:700 .72rem/1 \'JetBrains Mono\',monospace;letter-spacing:.06em;padding:.35rem .55rem;border-radius:999px">' + r[0].toUpperCase() + '</span>'
+            + '<button onclick="presentStage(' + n + ',\'' + r[0] + '\')" class="block mt-2 text-xs font-bold text-whs-dark dark:text-whs-gold underline">▶ slides</button></td>'
+            + '<td style="vertical-align:top;padding:.55rem .6rem" class="text-sm">' + split(r[1]) + '</td></tr>';
+    }).join('');
+    var btn = function(label, js, primary){ return '<button onclick="' + js + '" class="deck-launch' + (primary ? ' primary' : '') + '">' + label + '</button>'; };
+    return '<div class="glass-card bg-white dark:bg-slate-800 rounded-xl border-2 border-whs-dark dark:border-whs-gold overflow-hidden">'
+        + '<div class="px-5 py-4 bg-whs-dark text-white flex flex-wrap items-center justify-between gap-3">'
+        +   '<div><div class="text-[10px] font-mono uppercase tracking-widest text-whs-gold font-bold">Teacher lesson plan · Lesson ' + n + '</div>'
+        +   (timing ? '<div class="text-sm font-bold mt-1">⏱ ' + esc(timing) + '</div>' : '') + '</div>'
+        +   '<div class="flex flex-wrap gap-2">' + btn('▶ Present slides', 'presentAt(' + n + ',0)', true) + btn('⬇ PowerPoint', 'downloadDeck(' + n + ')')
+        +     (hasWorksheet(n) ? btn('📄 Print worksheet', 'openWorksheet(' + n + ')') + btn('📄 Full lesson sheet', 'openWorksheet(' + n + ',\'full\')') : '') + '</div></div>'
+        + '<div class="p-5"><div class="aim-rest mb-4">' + intentInnerHTML([n]) + '</div>'
+        + '<table style="width:100%;border-collapse:collapse" class="tplan">' + rows + '</table>'
+        + '<div class="mt-4 p-3 rounded-lg bg-amber-50 dark:bg-amber-950/30 border border-amber-300 dark:border-amber-800 text-sm text-slate-700 dark:text-slate-300"><strong>Preparation, differentiation and watch-fors.</strong> ' + esc(res) + '</div>'
+        + '</div></div>';
+}
+function slideListHTML(n){
+    injectBookSlides();
+    var d = SLIDES[n] || [], last = '';
+    var name = { title:'Title', aim:'Aim', where:'Where', book:'Book', sheet:'Sheet', copy:'Notes', task:'Task', 'do':'Devices', review:'Review', video:'Video', ask:'Question', fact:'Fact', idea:'Key idea', two:'Compare', photo:'Image' };
+    var h = d.map(function(s, i){
+        var st = stageOf(s), head = '';
+        if (st !== last) { head = '<div class="mt-4 mb-1 text-[11px] font-mono font-bold uppercase tracking-widest text-whs-dark dark:text-whs-gold">' + st + '</div>'; last = st; }
+        var label = s.h || s.stat || name[s.k] || s.k;
+        var thumb = s.k === 'photo' && PHOTOS[s.photo] ? '<img src="' + PHOTOS[s.photo].src + '" alt="" style="width:64px;height:40px;object-fit:cover;border-radius:4px">' : '<span style="display:inline-block;width:64px;text-align:center" class="text-[10px] font-mono text-slate-400">' + (name[s.k] || s.k).toUpperCase() + '</span>';
+        return head + '<button onclick="presentAt(' + n + ',' + i + ')" class="w-full text-left flex items-center gap-3 px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 mb-1">'
+            + '<span class="font-mono text-xs text-slate-400 w-6">' + (i + 1) + '</span>' + thumb + '<span class="text-sm text-slate-800 dark:text-slate-200">' + esc(String(label)) + '</span></button>';
+    }).join('');
+    return '<div class="glass-card bg-white dark:bg-slate-800 p-5 rounded-xl border border-slate-300 dark:border-slate-700">'
+        + '<div class="flex flex-wrap justify-between items-center gap-2 mb-1"><h3 class="text-lg font-extrabold text-whs-dark dark:text-whs-light">Slides for this lesson (' + d.length + ')</h3>'
+        + '<span class="flex gap-2"><button onclick="presentAt(' + n + ',0)" class="deck-launch primary">▶ Present</button><button onclick="downloadDeck(' + n + ')" class="deck-launch">⬇ PowerPoint</button></span></div>'
+        + '<p class="text-xs text-slate-500 dark:text-slate-400">Click any slide to present from there. Grouped by lesson stage.</p>' + h + '</div>';
+}
+function teacherExitHTML(n){
+    var m = LESSON_META[n] || {}, k = (UNIT.answerKeys || []).filter(function(a){ return a.title.indexOf('Lesson ' + n + ' ') === 0; })[0];
+    return '<div class="glass-card bg-white dark:bg-slate-800 rounded-xl border-2 border-slate-300 dark:border-slate-700 p-5 mt-5">'
+        + '<h3 class="text-lg font-extrabold text-whs-dark dark:text-whs-light mb-2">🎫 Exit ticket</h3><p class="text-slate-700 dark:text-slate-300">' + esc(m.exit || '') + '</p>'
+        + (k ? '<details class="mt-4"><summary class="cursor-pointer font-bold text-sm text-whs-dark dark:text-whs-gold">🔑 Answer key (not for projecting)</summary><div class="mt-2 text-sm text-slate-700 dark:text-slate-300">' + k.body + '</div></details>' : '')
+        + '</div>';
+}
 function lessonPhaseDefs(t){
     var steps = [];
     steps.push({ k:'start', label:PHASE_LABEL.start });
+    if (SLIDES[t.n[0]]) steps.push({ k:'slides', label:PHASE_LABEL.slides });
     if (BOOKWORK[t.n]) steps.push({ k:'book', label:PHASE_LABEL.book });
 
     (t.acts || []).map(actSpec).filter(function(a){ return a.id; }).forEach(function(a){
@@ -4052,8 +4102,6 @@ function lessonPhaseDefs(t){
         steps.push({ k:k, label:PHASE_LABEL[k], acts:[a] });
     });
 
-    if (BOOKWORK[t.n] && (BOOKWORK[t.n].copy || []).length)
-        steps.push({ k:'notes', label:PHASE_LABEL.notes });
     steps.push({ k:'deeper', label:PHASE_LABEL.deeper });
     return steps;
 }
@@ -4085,18 +4133,18 @@ function buildLessonPhases(t){
     var panes = steps.map(function(s, i){
         var inner = '';
         if (s.k === 'start') {
-            inner = '<div class="glass-card bg-white dark:bg-slate-800 p-5 md:p-6 rounded-xl border border-slate-300 dark:border-slate-700 border-t-4 border-t-whs-gold">'
-                  +   '<p class="text-slate-700 dark:text-slate-300 mb-3">' + esc(t.focus) + '</p>'
+            inner = teacherPlanHTML(t) + '<div class="glass-card bg-white dark:bg-slate-800 p-5 md:p-6 rounded-xl border border-slate-300 dark:border-slate-700 border-t-4 border-t-whs-gold mt-5">'
+                  +   '<p class="text-slate-700 dark:text-slate-300 mb-3"><strong>Lesson hook:</strong> ' + esc(t.focus) + '</p>'
                   +   '<div class="aim-box">'
-                  +     '<div class="aim-do"><strong>What to do this lesson</strong>'
+                  +     '<div class="aim-do"><strong>The task slide, line by line</strong>'
                   +       '<span class="text-slate-700 dark:text-slate-300">' + esc(t.task) + '</span></div>'
-                  +     '<div class="aim-rest">' + intentInnerHTML(t.n) + '</div>'
                   +   '</div></div>'
                   + whereCardHTML(t.n);
-        } else if (s.k === 'book')  { inner = bookSetupCardHTML(t.n); }
+        } else if (s.k === 'slides') { inner = slideListHTML(t.n[0]); }
+        else if (s.k === 'book')  { inner = bookSetupCardHTML(t.n) + '<div class="mt-5"></div>' + bookNotesCardHTML(t.n); }
         else if (s.k === 'notes')   { inner = bookNotesCardHTML(t.n); }
         else if (s.k === 'deeper')  {
-            inner = localCaseHTML(t.n) + resourceCardHTML(t.n) + exitHTML(t);
+            inner = localCaseHTML(t.n) + resourceCardHTML(t.n) + teacherExitHTML(t.n[0]);
         } else {
             inner = s.acts.map(activityCardHTML).join('');
             s.acts.forEach(function(a){ draw.push(a); });
@@ -4167,7 +4215,7 @@ function bookCardShell(title, body){
 
 function bookSetupCardHTML(nums){
     var w = BOOKWORK[nums]; if (!w) return '';
-    return bookCardShell('📓 Set up your book',
+    return bookCardShell('📓 Book work — what students do',
         '<div class="bw-lesson">'
       + '<div class="bw-row"><span class="bw-tag">Title to write</span>'
       +   '<span class="bw-title">' + esc(bookTitleFor(nums)) + '</span></div>'
@@ -4177,7 +4225,7 @@ function bookSetupCardHTML(nums){
 
 function bookNotesCardHTML(nums){
     var w = BOOKWORK[nums]; if (!w || !(w.copy || []).length) return '';
-    return bookCardShell('📓 Copy these notes into your book',
+    return bookCardShell('📓 Notes students copy into their books',
         '<div class="bw-lesson"><div class="bw-row"><span class="bw-tag">Notes to copy</span>'
       + '<div class="bw-copy"><ol>' + w.copy.map(function(c){ return '<li>' + esc(c) + '</li>'; }).join('')
       + '</ol></div></div></div>');
